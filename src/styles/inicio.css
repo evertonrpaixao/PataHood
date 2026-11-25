@@ -3,10 +3,13 @@ main:has(> .hero) { display: grid; gap: 1.25rem; justify-items: center; }
 .hero__banner {
     display: block;
     width: min(100%, 23rem);
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 2 / 1;
     object-fit: cover;
     border-radius: .45rem;
     background: linear-gradient(#c8e8e0 65%, #b9d6a8 65%);
+}
+.hero__banner[src=""] {
+    content: url("../assets/banner-patahood.png");
 }
 
 .campos, .acoes { display: grid; justify-items: center; gap: .65rem; }
@@ -22,4 +25,12 @@ main:has(> .hero) { display: grid; gap: 1.25rem; justify-items: center; }
 .busca__input {
     background: #f0dbc3;
     padding-inline-start: 2.25rem;
+}
+
+.card-pet__foto, .card-cuidador__foto {
+    display: block;
+    width: 3.5rem;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: .55rem;
 }

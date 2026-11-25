@@ -40,6 +40,15 @@ h2 { font-size: var(--h2); }
 h3 { font-size: var(--h3); }
 h4 { font-size: var(--h4); }
 img { max-width: 100%; }
+
+:is(.card-pet__foto, .perfil-pet__foto)[src=""] {
+    content: url("../assets/pet-padrao.png");
+}
+
+:is(.card-cuidador__foto, .info-cuidador__foto, .perfil__foto)[src=""] {
+    content: url("../pages/assets/cuidador-padrao.png");
+}
+
 button, input, textarea, select { font: inherit; }
 a { color: inherit; }
 
@@ -68,6 +77,13 @@ a { color: inherit; }
 .header a { text-decoration: none; }
 .header a:hover { text-decoration: underline; }
 .header__logo { font-weight: 700; }
+.header__logo img[src=""] {
+    content: url("../assets/logo-patahood.png");
+    display: block;
+    width: 2.5rem;
+    aspect-ratio: 1;
+    object-fit: contain;
+}
 .header__link { font-size: .8rem; }
 @media (max-width: 29rem) {
     .header__logo { flex-basis: 100%; }
