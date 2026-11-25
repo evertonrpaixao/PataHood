@@ -1,0 +1,34 @@
+.solicitacao {
+    display: grid;
+    gap: .85rem;
+    width: min(40rem, calc(100% - 2rem));
+    margin: 1rem auto;
+    padding: clamp(.85rem, 3vw, 1.5rem);
+    border-radius: .45rem;
+    background: var(--painel);
+    color: var(--texto);
+}
+.solicitacao.escondida { display: none; }
+.solicitacao__cabecalho { display: flex; align-items: start; justify-content: space-between; gap: .5rem; }
+.solicitacao__titulo { font-size: 1.3rem; }
+.botao-fechar { border: 0; border-radius: .25rem; background: var(--branco); cursor: pointer; }
+.solicitacao__datas, .solicitacao__horarios { display: grid; gap: .5rem; }
+.solicitacao label { display: grid; gap: .2rem; }
+.selecionar-pet { min-width: 0; border: 0; margin: 0; padding: 0; }
+.selecionar-pet__titulo { font-weight: 600; }
+.lista-pets { display: flex; flex-wrap: wrap; gap: .5rem; margin: .4rem 0 0; padding: 0; list-style: none; }
+.lista-pets label {
+    display: flex;
+    align-items: center;
+    background: var(--branco);
+    padding: .4rem;
+    border-radius: .3rem;
+}
+.solicitacao__botao { justify-self: center; }
+
+@media (min-width: 42rem) {
+    .solicitacao__datas, .solicitacao__horarios {
+        grid-template-columns: max-content minmax(0, 1fr);
+        align-items: center;
+    }
+}
