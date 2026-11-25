@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PataHood - Perfil do Pet</title>
+    <script src="https://kit.fontawesome.com/d9b40b5c2f.js" crossorigin="anonymous"></script>
+    <script src="../scripts/api.js"></script>
+    <script src="../scripts/perfil-pet.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <nav class="header__nav">
+            <a class="header__logo" href="#"><img src="" alt="Logo PataHood"></a>
+            <a class="header__link" href="#">Mural de avisos</a>
+            <a class="header__link" href="#">Seja um cuidador</a>
+        </nav>
+
+        <a class="header__botao-login" href="#">Entrar</a>
+    </header>
+
+    <main class="perfil-pet">
+        <div class="perfil-pet__fundo-superior"></div>
+
+        <form class="perfil-pet__form" id="form-pet">
+            <section class="perfil-pet__apresentacao">
+                <img class="perfil-pet__foto" id="pet-foto" src="" alt="Foto do pet">
+                
+                <h1 class="perfil-pet__titulo">
+                    <label for="pet-nome">Nome do pet</label>
+                    <input class="perfil-pet__input-nome" type="text" id="pet-nome" name="nome" value="" required>
+                </h1>
+            </section>
+
+            <section class="perfil-pet__dados">
+                <div class="perfil-pet__campo">
+                    <label for="pet-idade">Idade</label>
+                    <input class="perfil-pet__input" type="text" id="pet-idade" name="idade" value="">
+                </div>
+
+                <div class="perfil-pet__campo">
+                    <label for="pet-especie">Espécie</label>
+                    <input class="perfil-pet__input" type="text" id="pet-especie" name="especie" value="">
+                </div>
+
+                <div class="perfil-pet__campo">
+                    <label for="pet-raca">Raça</label>
+                    <input class="perfil-pet__input" type="text" id="pet-raca" name="raca" value="">
+                </div>
+
+                <div class="perfil-pet__campo">
+                    <label for="pet-peso">Peso</label>
+                    <input class="perfil-pet__input" type="text" id="pet-peso" name="peso" value="">
+                </div>
+
+                <div class="perfil-pet__campo perfil-pet__campo--largura-total">
+                    <label for="pet-telefone">Telefone do tutor</label>
+                    <input class="perfil-pet__input" type="tel" id="pet-telefone" name="telefone" value="">
+                </div>
+            </section>
+
+            <fieldset class="checklist">
+                <legend class="checklist__titulo">Checklist diário</legend>
+                <ul class="tarefas" id="tarefas"></ul>
+                <button class="perfil-pet__botao" type="button" id="adic-tarefa-botao">Adicionar tarefa</button>
+            </fieldset>
+
+            <button class="perfil-pet__botao" id="botao-salvar" type="submit">Salvar Informações</button>
+        </form>
+
+        <section class="info-cuidador">
+            <h2 class="info-cuidador__titulo">Informações do cuidador</h2>
+
+            <div class="info-cuidador__detalhes">
+                <img class="info-cuidador__foto" src="" alt="Foto do Cuidador">
+                <h3 class="info-cuidador__nome"></h3>
+                <p class="info-cuidador__bio"></p>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
