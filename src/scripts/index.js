@@ -10,7 +10,7 @@ function criarCardPet(pet){
 
     const card = document.createElement("a")
     card.className = "card-pet"
-    card.href = `perfil-pet.html?id=${id}`
+    card.href = `./src/pages/perfil-pet.html?id=${id}`
 
     card.innerHTML = `
         <img class="card-pet__foto" src="" alt="Foto de ${pet.nome || "pet"}">
@@ -23,7 +23,7 @@ function criarCardPet(pet){
 function criarCardNovoPet(){
     const cardNovo = document.createElement("a")
     cardNovo.className = "card-pet card-pet--novo"
-    cardNovo.href = "perfil-pet.html"
+    cardNovo.href = "./src/pages/perfil-pet.html"
 
     cardNovo.innerHTML = `
         <span class="card-pet__icone">+</span>

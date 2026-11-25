@@ -121,7 +121,7 @@ async function carregarPetsParaSolicitacao(){
 async function inicializarPagina(){
     if(!cuidadorId){
         alert("Cuidador não especificado. Voltando para a página inicial.")
-        window.location.href = "index.html"
+        window.location.href = "../../index.html"
         return
     }
 
