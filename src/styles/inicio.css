@@ -1,0 +1,25 @@
+main:has(> .hero) { display: grid; gap: 1.25rem; justify-items: center; }
+.hero { display: grid; justify-items: center; gap: .5rem; text-align: center; }
+.hero__banner {
+    display: block;
+    width: min(100%, 23rem);
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: .45rem;
+    background: linear-gradient(#c8e8e0 65%, #b9d6a8 65%);
+}
+
+.campos, .acoes { display: grid; justify-items: center; gap: .65rem; }
+.campos { width: min(100%, 23rem); }
+.busca { position: relative; width: 100%; }
+.busca__icone-lupa {
+    position: absolute;
+    inset-inline-start: .75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+.busca__input {
+    background: #f0dbc3;
+    padding-inline-start: 2.25rem;
+}
