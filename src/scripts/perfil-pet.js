@@ -9,20 +9,26 @@ const inputTelefone = document.querySelector("#pet-telefone")
 const listaTarefas = document.querySelector("#tarefas")
 const botaoAddTarefa = document.querySelector("#adic-tarefa-botao")
 
+// pegando id do pet pela url da página
+const params = new URLSearchParams(window.location.search)
+const petId = params.get("id")
+
 // FUNÇÕES //
-function adicionarTarefa(){
+function adicionarTarefa(texto = "", concluida = false){
     const itemTarefa = document.createElement("li")
     itemTarefa.className = "tarefas__item"
 
     const checkbox = document.createElement("input")
     checkbox.type = "checkbox"
     checkbox.className = "tarefas__checkbox"
+    checkbox.checked = concluida
     checkbox.disabled = true
 
     const inputTexto = document.createElement("input")
     inputTexto.type = "text"
     inputTexto.className = "tarefas__texto"
     inputTexto.placeholder = "Descrever tarefa"
+    inputTexto.value = texto
 
     itemTarefa.append(checkbox, inputTexto)
     listaTarefas.appendChild(itemTarefa)
@@ -47,6 +53,34 @@ function obterChecklist(){
     }).filter((tarefa) => tarefa.texto !== "")
 }
 
+function preencherFormularioPet(pet){
+    inputNome.value = pet.nome || ""
+    inputIdade.value = pet.idade || ""
+    inputEspecie.value = pet.especie || ""
+    inputRaca.value = pet.raca || ""
+    inputPeso.value = pet.peso || ""
+    inputTelefone.value = pet.telefone || ""
+
+    listaTarefas.innerHTML = ""
+    ;(pet.checklist || []).forEach((tarefa) => {
+        adicionarTarefa(tarefa.texto, tarefa.concluida)
+    })
+}
+
+async function inicializarPagina(){
+    if(!petId) return
+
+    //buscando pet já cadastrado pelo id
+    try{
+        const pet = await buscarDados(`/pets/${petId}`)
+        preencherFormularioPet(pet)
+    }catch (erro){
+        console.error(erro)
+        alert("Pet não encontrado. Redirecionando para novo cadastro.")
+        window.location.search = ""
+    }
+}
+
 async function salvarPet(event){
     event.preventDefault()
 
@@ -56,15 +90,23 @@ async function salvarPet(event){
     const novoPet = {
         // jogando todo o objeto dadosForm dentro de novo pet
         ...dadosForm,
-        checklist: obterChecklist()
+        checklist: obterChecklist(),
+        cuidadorId: null
     }
     
-    console.log("Pet salvo na API:", novoPet)
-    //const petSalvo = await enviarDados("/pets", novoPet)
-    //console.log("Pet salvo na API:", petSalvo)
+    try{
+        const petSalvo = await enviarDados("/pets", novoPet)
+        alert("Informações do pet salvas com sucesso!")
+
+        console.log("Pet salvo na API:", novoPet)
+    }catch (erro){
+        console.error(erro)
+        alert("Não foi possível salvar os dados. Verifique a conexão com a API.")
+    }   
 }
 
 // EVENTOS //
 botaoAddTarefa.addEventListener("click", adicionarTarefa)
 formPet.addEventListener("submit", salvarPet)
 
+inicializarPagina()
