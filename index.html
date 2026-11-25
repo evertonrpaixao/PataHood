@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PataHood</title>
     <script src="https://kit.fontawesome.com/d9b40b5c2f.js" crossorigin="anonymous"></script>
+    <script src="./src/scripts/api.js" defer></script>
+    <script src="./src/scripts/dados-profissionais.js" defer></script>
+    <script src="./src/scripts/index.js" defer></script>
 </head>
 <body>
     <header class="header">
@@ -17,23 +20,25 @@
         <a class="header__botao-login" href="#">Entrar</a>
     </header>
 
-    <main>
-        <section class="hero">
-            <img class="hero__banner" src="" alt="Ilustração PataHood">
-            <p class="hero__descricao">Encontre cuidadores qualificados perto de você</p>
-        </section>
+    <section class="hero">
+        <img class="hero__banner" src="" alt="Ilustração PataHood">
+        <p class="hero__descricao">Encontre cuidadores qualificados perto de você</p>
+    </section>
 
+    <main>
         <section class="campos">
             <div class="busca">
                 <i class="busca__icone-lupa fa-solid fa-magnifying-glass"></i>
-                <input class="busca__input" type="text" name="" id="" placeholder="Buscar...">
+                <input class="busca__input" type="text" name="" id="busca-input" placeholder="Buscar...">
             </div>
 
             <div class="acoes">
-                <button class="botao botao--cuidadores" type="button">Encontrar Cuidador</button>
-                <button class="botao botao--pets" type="button">Acompanhar pet</button>
+                <button class="botao botao--cuidadores" id="botao-cuidadores" type="button">Encontrar Cuidador</button>
+                <button class="botao botao--pets" id="botao-pets" type="button">Acompanhar pet</button>
             </div>
         </section>
+
+        <section class="lista-elementos" id="lista-cards"></section>
     </main>
 
     <footer></footer>
