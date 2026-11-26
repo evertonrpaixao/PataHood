@@ -41,7 +41,7 @@ O **PataHood** centraliza a busca por cuidadores próximos e permite que cada tu
 
 ## Integração com a API e Endpoints
 
-Toda a comunicação com o back-end é centralizada no módulo `api.js` por meio das funções `buscarDados` (`GET`), `enviarDados` (`POST`) e `atualizarDados` (`PATCH`), trafegando objetos em formato `JSON`.
+Toda a comunicação com o back-end é centralizada no módulo `api.js` por meio das funções `buscarDados` (`GET`), `enviarDados` (`POST`) e `atualizarDados` (`PATCH`), trafegando objetos em formato `JSON`. Na seção {squad} na URL da api usamos "devserbalao".
 
 ### Endpoints Utilizados
 
@@ -80,7 +80,7 @@ Toda a comunicação com o back-end é centralizada no módulo `api.js` por meio
 ```text
 PataHood/
 ├── assets                      # Arquivos de imagem
-└── source/                     
+└── src/                     
 │    ├── pages/
 │        ├── perfil-pet.html     # Cadastro e edição de perfil e checklist do pet
 │        ├── perfil-profissional.html # Perfil detalhado do cuidador e contratação
