@@ -61,8 +61,12 @@
     background: var(--marrom);
 }
 
-.acoes { margin-top: 1rem; }
-.acoes .botao { flex: 1 1 13rem; }
+.acoes { 
+    display: flex;
+    flex-flow: column;
+    gap: 10px;
+}
+
 .lista-elementos:not(:empty) {
     box-sizing: border-box;
     display: grid;
@@ -117,6 +121,8 @@
 }
 
 .card-cuidador__preco { color: var(--acao); font-weight: 600; }
+.card-cuidador__cidade { color: #475569; font-weight: 600; }
+.card-cuidador__nota { color: #b45309; font-weight: 700; }
 
 .card-pet__icone {
     display: grid;
@@ -284,5 +290,9 @@
         font-size: var(--h2);
         font-weight: 700;
         line-height: 1.2;
+    }
+
+    .acoes { 
+        flex-flow: row;
     }
 }

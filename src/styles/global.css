@@ -51,47 +51,96 @@ a { color: inherit; }
 }
 
 .header {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: .75rem;
     padding: .65rem clamp(.75rem, 4vw, 3rem);
     background: var(--verde);
-    color: #102f2b;
+    color: var(--branco);
+}
+
+.header__esquerda {
+    display: flex;
+    align-items: center;
+    gap: .75rem 1.25rem;
+}
+
+.header__menu-botao {
+    display: none;
+    background: transparent;
+    border: 0;
+    color: var(--branco);
+    font-size: 1.5rem;
+    line-height: 1;
+    padding: .25rem;
+    cursor: pointer;
 }
 
 .header__nav {
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
     gap: .35rem 1rem;
 }
 
 .header a { text-decoration: none; }
 .header a:hover { text-decoration: underline; }
-.header__logo { font-weight: 700; }
-.header__logo{
+
+.header__logo {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 5px;
-}
-.header__logo:hover { 
-    text-decoration: none; 
+    font-weight: bold;
 }
 
-.header__logo img{
+.header__logo:hover {
+    text-decoration: none;
+}
+
+.header__logo img {
     display: block;
     width: 2.5rem;
     aspect-ratio: 1;
     object-fit: contain;
+    
 }
 
 .header__link { font-size: .8rem; }
-@media (max-width: 29rem) {
-    .header__logo { flex-basis: 100%; }
-}
 
+@media (max-width: 40rem) {
+    .header__menu-botao {
+        display: block;
+    }
+
+    .header__nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        box-sizing: border-box;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: .85rem;
+        padding: 1rem clamp(.75rem, 4vw, 3rem);
+        background: var(--verde);
+        border-top: 1px solid rgba(16, 47, 43, 0.15);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+        z-index: 100;
+    }
+
+    .header__nav--aberto {
+        display: flex;
+    }
+
+    .header__link {
+        font-size: .95rem;
+        width: 100%;
+        padding-block: .25rem;
+    }
+}
 
 .botao, .header__botao-login, .contratar-botao,
 .perfil-pet__botao, .solicitacao__botao {
@@ -131,6 +180,35 @@ main {
     border-radius: .3rem;
     background: var(--branco);
     color: var(--texto);
+}
+
+.mensagem-lista {
+    grid-column: 1 / -1;
+    padding: 1rem 1.25rem;
+    border-radius: .45rem;
+    font-size: .95rem;
+    line-height: 1.5;
+}
+
+.mensagem-lista__texto {
+    margin: 0;
+    text-align: center;
+    font-weight: 500;
+}
+
+.mensagem-lista--aviso {
+    background-color: #fcecad;
+    color: #92400e;
+}
+
+.mensagem-lista--erro {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+.mensagem-lista--sucesso {
+    background-color: #e3fee2;
+    color: #1b992c;
 }
 
 .rodape {

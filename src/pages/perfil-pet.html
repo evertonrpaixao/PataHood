@@ -12,11 +12,20 @@
 </head>
 <body>
     <header class="header">
-        <nav class="header__nav">
-            <a class="header__logo" href="../../index.html"> PataHood <img src="../../assets/logo-patahood.png" alt="Logo PataHood"></a>
-            <a class="header__link" href="#">Mural de avisos</a>
-            <a class="header__link" href="#">Seja um cuidador</a>
-        </nav>
+        <div class="header__esquerda">
+            <button class="header__menu-botao" id="botao-menu" type="button" aria-label="Abrir menu" aria-expanded="false">
+                ☰
+            </button>
+
+            <a class="header__logo" href="../../index.html">
+                PataHood <img src="../../assets/logo-patahood.png" alt="Logo PataHood">
+            </a>
+
+            <nav class="header__nav" id="header-nav">
+                <a class="header__link" href="#">Mural de avisos</a>
+                <a class="header__link" href="#">Seja um cuidador</a>
+            </nav>
+        </div>
 
         <a class="header__botao-login" href="#">Entrar</a>
     </header>
