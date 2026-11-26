@@ -8,9 +8,6 @@ main:has(> .hero) { display: grid; gap: 1.25rem; justify-items: center; }
     border-radius: .45rem;
     background: linear-gradient(#c8e8e0 65%, #b9d6a8 65%);
 }
-.hero__banner[src=""] {
-    content: url("../assets/banner-patahood.png");
-}
 
 .campos, .acoes { display: grid; justify-items: center; gap: .65rem; }
 .campos { width: min(100%, 23rem); }

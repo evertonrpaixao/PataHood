@@ -13,7 +13,7 @@ function criarCardPet(pet){
     card.href = `./src/pages/perfil-pet.html?id=${id}`
 
     card.innerHTML = `
-        <img class="card-pet__foto" src="" alt="Foto de ${pet.nome || "pet"}">
+        <img class="card-pet__foto" src="./assets/pet-padrao.png" alt="Foto de ${pet.nome || "pet"}">
         <h2 class="card-pet__nome">${pet.nome || "Pet sem nome"}</h2>
         <p class="card-pet__raca">${pet.raca || "SRD"}</p>
     `
@@ -41,7 +41,7 @@ function criarCardCuidador(cuidador){
     card.href = `./src/pages/perfil-profissional.html?id=${id}`
 
     card.innerHTML = `
-        <img class="card-cuidador__foto" src="" alt="Foto de ${cuidador.nome || "cuidador"}">
+        <img class="card-cuidador__foto" src="./assets/cuidador-padrao.png" alt="Foto de ${cuidador.nome || "cuidador"}">
         <h2 class="card-cuidador__nome">${cuidador.nome || "Cuidador"}</h2>
         <p class="card-cuidador__descricao">${cuidador.descricao || "Cuidados gerais"}</p>
         <span class="card-cuidador__preco">R$ ${cuidador.preco || "0,00"}</span>

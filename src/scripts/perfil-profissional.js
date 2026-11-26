@@ -69,7 +69,7 @@ function renderizarAvaliacoes(avaliacoes = []){
 }
 
 function preencherPerfilCuidador(cuidador){
-    perfilFoto.src = cuidador.foto || "assets/cuidador-padrao.png"
+    perfilFoto.src = cuidador.foto || "../../assets/cuidador-padrao.png"
     perfilFoto.alt = `Foto de ${cuidador.nome || "cuidador"}`
 
     perfilNome.textContent = cuidador.nome || "Cuidador sem nome"

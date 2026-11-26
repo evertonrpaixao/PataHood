@@ -181,7 +181,7 @@ const cuidadoresIniciais = [
 
     {
         nome: "Henrique Duarte",
-        foto: "g",
+        foto: "",
         preco: "44,00",
         descricao: "Disponibilidade flexível para passeios diários e acompanhamento durante o horário comercial.",
         idade: 27,

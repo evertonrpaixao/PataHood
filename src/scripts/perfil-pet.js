@@ -1,5 +1,6 @@
 // DOM //
 const formPet = document.querySelector("#form-pet")
+const petFoto = document.querySelector("#pet-foto")
 const inputNome = document.querySelector("#pet-nome")
 const inputIdade = document.querySelector("#pet-idade")
 const inputEspecie = document.querySelector("#pet-especie")
@@ -54,6 +55,7 @@ function obterChecklist(){
 }
 
 function preencherFormularioPet(pet){
+    petFoto.src = "../../assets/pet-padrao.png"
     inputNome.value = pet.nome || ""
     inputIdade.value = pet.idade || ""
     inputEspecie.value = pet.especie || ""
