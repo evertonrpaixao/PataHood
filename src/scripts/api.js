@@ -25,3 +25,19 @@ async function enviarDados(endpoint, dados){
 
     return await response.json()
 }
+
+async function atualizarDados(endpoint, dados) {
+    const resposta = await fetch(`${API_URL}${endpoint}`, {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(dados)
+    })
+
+    if (!resposta.ok) {
+        throw new Error(`Erro ao atualizar dados: ${resposta.status}`)
+    }
+
+    return await resposta.json()
+}

@@ -87,18 +87,37 @@ async function salvarPet(event){
     //transformando formData(formPet) num objeto tradicional para que a api possa ler
     const dadosForm = Object.fromEntries(new FormData(formPet))
 
-    const novoPet = {
+    const dadosPet = {
         // jogando todo o objeto dadosForm dentro de novo pet
         ...dadosForm,
         checklist: obterChecklist(),
-        cuidadorId: null
     }
     
     try{
+        // se existir um id na página, atualiza um cadastro existente ao invés de criar um novo
+        if(petId){
+            const petSalvo = await atualizarDados(`/pets/${petId}`, dadosPet)
+            alert("Informações do pet atualizadas com sucesso!")
+
+            console.log("Pet atualizado na API:", petSalvo)
+            window.location.reload()
+            return
+        }
+
+        // cria novo pet
+        const novoPet = {
+            ...dadosPet,
+            cuidadorId: null
+        }
+
         const petSalvo = await enviarDados("/pets", novoPet)
+        const novoId = petSalvo.id
         alert("Informações do pet salvas com sucesso!")
 
-        console.log("Pet salvo na API:", novoPet)
+        if(novoId){
+            window.location.search = `?id=${novoId}`
+        }
+        console.log("Pet salvo na API:", petSalvo)
     }catch (erro){
         console.error(erro)
         alert("Não foi possível salvar os dados. Verifique a conexão com a API.")
@@ -106,7 +125,10 @@ async function salvarPet(event){
 }
 
 // EVENTOS //
-botaoAddTarefa.addEventListener("click", adicionarTarefa)
+botaoAddTarefa.addEventListener("click", () => {
+    adicionarTarefa()
+})
+
 formPet.addEventListener("submit", salvarPet)
 
 inicializarPagina()
