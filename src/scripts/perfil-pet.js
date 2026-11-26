@@ -70,6 +70,7 @@ function preencherFormularioPet(pet){
 }
 
 async function inicializarPagina(){
+    petFoto.src = "../../assets/pet-padrao.png"
     if(!petId) return
 
     //buscando pet já cadastrado pelo id
