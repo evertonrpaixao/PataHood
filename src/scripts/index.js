@@ -1,4 +1,6 @@
 // DOM //
+const botaoMenu = document.querySelector("#botao-menu")
+const headerNav = document.querySelector("#header-nav")
 const inputBusca = document.querySelector("#busca-input")
 const botaoCuidadores = document.querySelector("#botao-cuidadores")
 const botaoPets = document.querySelector("#botao-pets")
@@ -43,31 +45,34 @@ function criarCardCuidador(cuidador){
     card.innerHTML = `
         <img class="card-cuidador__foto" src="./assets/cuidador-padrao.png" alt="Foto de ${cuidador.nome || "cuidador"}">
         <h2 class="card-cuidador__nome">${cuidador.nome || "Cuidador"}</h2>
+        <p class="card-cuidador__cidade">${cuidador.cidade || "Cidade não informada"}
         <p class="card-cuidador__descricao">${cuidador.descricao || "Cuidados gerais"}</p>
+        <p class="card-cuidador__nota"> ★ ${cuidador.nota || "0.0"}</p>
         <span class="card-cuidador__preco">R$ ${cuidador.preco || "0,00"}</span>
     `
     return card
 }
 
-async function exibirLista({ endpoint, criarCard, termoBusca = "", cardExtra = null }) {
+async function exibirLista({ endpoint, criarCard, valorBusca = "", cardExtra = null, mensagemVazio = "Nenhum resultado encontrado." }) {
     listaElementos.innerHTML = "<p>Carregando...</p>"
 
     try{
         let dados = await buscarDados(endpoint)
         dados = dados || []
 
-        const termo = termoBusca.trim().toLowerCase()
-        if (termo) {
+        // colocando valores de .cidade em minúsculo para comparar com o valor digitado pelo usuário independente de como ele digite
+        const valor = valorBusca.trim().toLowerCase()
+        if(valor){
             dados = dados.filter((item) => {
-                const textoBuscavel = `${item.nome || ""} ${item.raca || ""} ${item.descricao || ""}`.toLowerCase()
-                return textoBuscavel.includes(termo)
+                const cidade = (item.cidade || "").toLowerCase()
+                return cidade.startsWith(valor)
             })
         }
 
         listaElementos.innerHTML = ""
 
         if(dados.length === 0 && !cardExtra){
-            listaElementos.innerHTML = "<p>Nenhum resultado encontrado.</p>"
+            listaElementos.appendChild(criarCardMensagem(mensagemVazio, "aviso"))
             return
         }
 
@@ -87,6 +92,19 @@ async function exibirLista({ endpoint, criarCard, termoBusca = "", cardExtra = n
     }
 }
 
+function criarCardMensagem(texto, tipo = "aviso"){
+    const card = document.createElement("div")
+    card.className = `mensagem-lista mensagem-lista--${tipo}`
+    card.setAttribute("role", "alert")
+
+    const paragrafo = document.createElement("p")
+    paragrafo.className = "mensagem-lista__texto"
+    paragrafo.textContent = texto
+
+    card.appendChild(paragrafo)
+    return card
+}
+
 // EVENTOS //
 botaoPets.addEventListener("click", () => {
     exibirLista({
@@ -97,8 +115,37 @@ botaoPets.addEventListener("click", () => {
 })
 
 botaoCuidadores.addEventListener("click", () => {
+    const valorBusca = inputBusca.value.trim()
+
+    if(!valorBusca){
+        listaElementos.innerHTML = ""
+        listaElementos.appendChild(
+            criarCardMensagem("Digite o nome de uma cidade para buscar cuidadores próximos.", "aviso"))
+        inputBusca.focus()
+        return
+    }
+
+    if (valorBusca.length < 3) {
+        listaElementos.innerHTML = ""
+        listaElementos.appendChild(
+            criarCardMensagem("Digite pelo menos 3 letras para buscar a cidade.", "aviso")
+        )
+        inputBusca.focus()
+        return
+    }
+
     exibirLista({
         endpoint: "/cuidadores",
-        criarCard: criarCardCuidador
+        criarCard: criarCardCuidador,
+        valorBusca,
+        mensagemVazio: `Não existem cuidadores cadastrados em "${valorBusca}".`
     })
 })
+
+if (botaoMenu && headerNav){
+    botaoMenu.addEventListener("click", () => {
+        const estaAberto = headerNav.classList.toggle("header__nav--aberto")
+        botaoMenu.setAttribute("aria-expanded", estaAberto)
+        botaoMenu.textContent = estaAberto ? "✕" : "☰"
+    })
+}
