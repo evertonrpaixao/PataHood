@@ -1,5 +1,11 @@
-main:has(> .hero) { display: grid; gap: 1.25rem; justify-items: center; }
-.hero { display: grid; justify-items: center; gap: .5rem; text-align: center; }
+.hero {
+    display: grid;
+    justify-items: center;
+    gap: .5rem;
+    margin: 1rem auto 0;
+    padding-inline: 1rem;
+    text-align: center;
+}
 .hero__banner {
     display: block;
     width: min(100%, 23rem);
@@ -10,7 +16,7 @@ main:has(> .hero) { display: grid; gap: 1.25rem; justify-items: center; }
 }
 
 .campos, .acoes { display: grid; justify-items: center; gap: .65rem; }
-.campos { width: min(100%, 23rem); }
+.campos { width: min(100%, 23rem); margin-inline: auto; }
 .busca { position: relative; width: 100%; }
 .busca__icone-lupa {
     position: absolute;
@@ -24,10 +30,106 @@ main:has(> .hero) { display: grid; gap: 1.25rem; justify-items: center; }
     padding-inline-start: 2.25rem;
 }
 
-.card-pet__foto, .card-cuidador__foto {
+.lista-elementos:not(:empty) {
+    display: grid;
+    gap: .65rem;
+    min-width: 0;
+    margin-top: 1rem;
+    padding: .75rem;
+    border: .5rem solid var(--branco);
+    border-radius: .45rem;
+    background: var(--neutro);
+}
+
+.card-pet, .card-cuidador {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    column-gap: .75rem;
+    row-gap: .15rem;
+    padding: .75rem;
+    border-radius: .45rem;
+    background: var(--branco);
+    text-decoration: none;
+    overflow-wrap: anywhere;
+}
+
+.card-pet:hover, .card-cuidador:hover {
+    text-decoration: underline;
+}
+
+.card-pet__foto, .card-cuidador__foto, .card-pet__icone {
+    grid-column: 1;
+    grid-row: 1 / span 2;
     display: block;
     width: 3.5rem;
     aspect-ratio: 1;
     object-fit: cover;
     border-radius: .55rem;
+    background: var(--neutro);
+}
+
+.card-cuidador__foto { grid-row-end: span 3; }
+
+.card-pet__nome, .card-cuidador__nome {
+    font-size: 1rem;
+    line-height: 1.35;
+}
+
+.card-pet__raca, .card-cuidador__descricao, .card-cuidador__preco {
+    grid-column: 2;
+    font-size: .875rem;
+}
+
+.card-cuidador__preco { color: var(--acao); font-weight: 600; }
+
+.card-pet__icone {
+    display: grid;
+    place-items: center;
+    background: var(--acao);
+    color: var(--branco);
+    font-size: 1.5rem;
+}
+
+@media (min-width: 48rem) {
+    body:has(> main > .lista-elementos:not(:empty)) {
+        display: grid;
+        grid-template-columns: minmax(1rem, 1fr) minmax(0, 29rem) minmax(0, 33rem) minmax(1rem, 1fr);
+        grid-template-areas:
+            "header header header header"
+            ". hero results ."
+            ". search results ."
+            ". space results ."
+            "footer footer footer footer";
+        grid-template-rows: auto auto auto 1fr auto;
+    }
+
+    body:has(> main > .lista-elementos:not(:empty))::before {
+        content: "";
+        grid-area: hero-start / hero-start / space-end / results-end;
+        margin-block: 1.5rem;
+        border-radius: .45rem;
+        background: var(--painel);
+    }
+
+    body:has(> main > .lista-elementos:not(:empty)) > .header { grid-area: header; }
+    body:has(> main > .lista-elementos:not(:empty)) > footer { grid-area: footer; }
+    body:has(> main > .lista-elementos:not(:empty)) > main { display: contents; }
+
+    body:has(> main > .lista-elementos:not(:empty)) > .hero {
+        grid-area: hero;
+        margin-block: 3rem .9rem;
+    }
+
+    main:has(> .lista-elementos:not(:empty)) > .campos {
+        grid-area: search;
+        width: min(calc(100% - 2rem), 23rem);
+        margin-bottom: 3rem;
+    }
+
+    .lista-elementos:not(:empty) {
+        grid-area: results;
+        align-self: start;
+        margin: 3rem 1.5rem 3rem .5rem;
+    }
 }

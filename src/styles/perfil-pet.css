@@ -17,6 +17,8 @@
     border-radius: .55rem;
     background: var(--neutro);
 }
+.perfil-pet__foto[src=""] { content: url("../../assets/pet-padrao.png"); }
+.info-cuidador__foto[src=""] { content: url("../../assets/cuidador-padrao.png"); }
 .perfil-pet__titulo { width: min(100%, 18rem); }
 .perfil-pet__titulo input { text-align: center; font-size: 1rem; }
 .perfil-pet__dados {
