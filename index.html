@@ -14,7 +14,7 @@
 <body>
     <header class="header">
         <nav class="header__nav">
-            <a class="header__logo" href="./index.html"><img src="./assets/logo-patahood.png" alt="Logo PataHood"></a>
+            <a class="header__logo" href="./index.html"> PataHood <img src="./assets/logo-patahood.png" alt="Logo PataHood"></a>
             <a class="header__link" href="#">Mural de avisos</a>
             <a class="header__link" href="#">Seja um cuidador</a>
         </nav>
@@ -43,6 +43,103 @@
         <section class="lista-elementos" id="lista-cards"></section>
     </main>
 
-    <footer></footer>
+    <section class="solucao" id="sobre-solucao">
+        <div class="solucao__container">
+            <header class="solucao__cabecalho">
+                <span class="solucao__etiqueta">Nossa Solução e Impacto</span>
+                <h2 class="solucao__titulo">Cuidado pet organizado, local e transparente</h2>
+                <p class="solucao__subtitulo">
+                    A PataHood resolve a insegurança de tutores ao deixar seus animais sob cuidados de terceiros, conectando moradores da mesma cidade a cuidadores verificados com rotinas documentadas.
+                </p>
+            </header>
+
+            <div class="solucao__como-funciona">
+                <article class="solucao__passo">
+                    <h3 class="solucao__passo-titulo">1. Perfil e Checklist do Pet</h3>
+                    <p class="solucao__passo-texto">
+                        O tutor registra horários de alimentação, medicações e hábitos específicos em um checklist individualizado para cada animal.
+                    </p>
+                </article>
+
+                <article class="solucao__passo">
+                    <h3 class="solucao__passo-titulo">2. Busca por Proximidade</h3>
+                    <p class="solucao__passo-texto">
+                        Filtros por cidade e disponibilidade facilitam encontrar cuidadores qualificados na própria vizinhança, reduzindo deslocamentos.
+                    </p>
+                </article>
+
+                <article class="solucao__passo">
+                    <h3 class="solucao__passo-titulo">3. Contratação Direta</h3>
+                    <p class="solucao__passo-texto">
+                        O tutor analisa experiência, avaliações e certificações antes de vincular seus pets ao cuidador escolhido com clareza total.
+                    </p>
+                </article>
+            </div>
+
+            <div class="solucao__ods-grid">
+                <article class="solucao__ods-card solucao__ods-card--direta">
+                    <div class="solucao__ods-topo">
+                        <span class="solucao__ods-badge solucao__ods-badge--11">ODS 11 • Impacto Direto</span>
+                        <h3 class="solucao__ods-titulo">Cidades e Comunidades Sustentáveis</h3>
+                    </div>
+                    <p class="solucao__ods-texto">
+                        Fortalece redes locais de apoio entre vizinhos e fomenta a economia de bairro. Ao oferecer suporte confiável para tutores durante viagens ou jornadas de trabalho, a plataforma previne situações de negligência e abandono animal, promovendo um convívio urbano mais seguro, responsável e sustentável.
+                    </p>
+                </article>
+
+                <article class="solucao__ods-card solucao__ods-card--indireta">
+                    <div class="solucao__ods-topo">
+                        <span class="solucao__ods-badge solucao__ods-badge--3">ODS 3 • Impacto Indireto</span>
+                        <h3 class="solucao__ods-titulo">Saúde e Bem-Estar</h3>
+                    </div>
+                    <p class="solucao__ods-texto">
+                        Contribui para a saúde física e emocional de animais e pessoas. Os pets mantêm sua rotina de passeios, remédios e companhia sem estresse, enquanto os tutores ganham tranquilidade e redução de ansiedade por saberem que suas orientações estão sendo seguidas à risca.
+                    </p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <footer class="rodape">
+    <div class="rodape__container">
+        <div class="rodape__coluna rodape__coluna--marca">
+            <h2 class="rodape__logo">PataHood</h2>
+            <p class="rodape__descricao">
+                Conectando tutores a cuidadores locais verificados para garantir segurança, transparência e bem-estar animal na sua vizinhança.
+            </p>
+            <div class="rodape__redes">
+                <a href="#" class="rodape__rede-link" aria-label="Instagram">Instagram</a>
+                <a href="#" class="rodape__rede-link" aria-label="LinkedIn">LinkedIn</a>
+                <a href="#" class="rodape__rede-link" aria-label="GitHub">GitHub</a>
+            </div>
+        </div>
+
+        <div class="rodape__coluna">
+            <h3 class="rodape__titulo">Plataforma</h3>
+            <ul class="rodape__lista">
+                <li><a href="#" class="rodape__link">Início</a></li>
+                <li><a href="#" class="rodape__link">Encontrar Cuidadores</a></li>
+                <li><a href="./src/pages/perfil-pet.html" class="rodape__link">Cadastrar Pet</a></li>
+                <li><a href="#" class="rodape__link">Nossa Solução e ODS</a></li>
+            </ul>
+        </div>
+
+        <div class="rodape__coluna">
+            <h3 class="rodape__titulo">Institucional e Contato</h3>
+            <ul class="rodape__lista">
+                <li><a href="#" class="rodape__link">Termos de Uso</a></li>
+                <li><a href="#" class="rodape__link">Política de Privacidade</a></li>
+                <li class="rodape__info">contato@patahood.com.br</li>
+                <li class="rodape__info">(81) 99999-0000 • Seg a Sex, 08h às 18h</li>
+                <li class="rodape__info">Recife e Região Metropolitana - PE</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="rodape__base">
+        <p class="rodape__copyright">© 2026 PataHood Tecnologia Pet Ltda. CNPJ: 00.000.000/0001-00</p>
+        <p class="rodape__aviso">Todos os direitos reservados • Projeto MVP</p>
+    </div>
+</footer>
 </body>
 </html>
