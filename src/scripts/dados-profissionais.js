@@ -17,6 +17,12 @@ const cuidadoresIniciais = [
                 autor: "Lucas Almeida",
                 nota: "5.0",
                 comentario: "Muito atenciosa com meu cachorro idoso, mandou fotos em todos os passeios."
+            },
+
+            {
+                autor: "Thiago Nascimento",
+                nota: "4.7",
+                comentario: "Ótima comunicação e cuidado com os horários da medicação do meu cão idoso."
             }
         ]
     },
@@ -77,6 +83,18 @@ const cuidadoresIniciais = [
                 autor: "Fernanda Lima",
                 nota: "5.0",
                 comentario: "Seguiu todos os horários de remédio à risca e manteve o ambiente super calmo."
+            },
+
+            {
+                autor: "Beatriz Lima",
+                nota: "5.0",
+                comentario: "Mandou atualizações ao longo do dia e cumpriu todas as tarefas combinadas sem falhas."
+            },
+
+            {
+                autor: "Rodrigo Farias",
+                nota: "4.8",
+                comentario: "Passeios sempre no horário certo e voltou super calmo. Com certeza contratarei novamente."
             }
         ]
     },
@@ -115,6 +133,24 @@ const cuidadoresIniciais = [
                 autor: "Pedro Henrique",
                 nota: "4.8",
                 comentario: "Ajudou bastante na rotina do meu filhote durante a semana."
+            },
+
+            {
+                autor: "Camila Albuquerque",
+                nota: "5.0",
+                comentario: "Seguiu todo o checklist de alimentação e passeios à risca. Fiquei muito tranquila durante a viagem."
+            },
+
+            {
+                autor: "Rafael Tavares",
+                nota: "4.9",
+                comentario: "Muito pontual e atencioso. Meu cachorro se adaptou logo no primeiro dia."
+            },
+
+            {
+                autor: "Juliana Mendes",
+                nota: "5.0",
+                comentario: "Teve paciência com minha gata, que costuma ser bem arisca com visitas. Recomendo demais."
             }
         ]
     },
@@ -175,7 +211,13 @@ const cuidadoresIniciais = [
                 autor: "Gustavo Ribeiro",
                 nota: "4.9",
                 comentario: "Cuidou de dois gatos e um cachorro sem nenhum problema."
-            }
+            },
+
+            {
+                autor: "Diego Santana",
+                nota: "4.7",
+                comentario: "Atendeu perfeitamente às necessidades do meu pet e respeitou toda a rotina da casa."
+            },
         ]
     },
 
@@ -192,7 +234,37 @@ const cuidadoresIniciais = [
         nota: "4.7",
         experiencia: 2,
         certificacoes: ["Passeios e Conduta"],
-        avaliacoes: []
+        avaliacoes: [
+            {
+                autor: "Larissa Costa",
+                nota: "4.9",
+                comentario: "Cuidou dos meus dois pets no fim de semana com muito carinho e responsabilidade."
+            },
+
+            {
+                autor: "Bruno Cavalcanti",
+                nota: "4.6",
+                comentario: "Experiência muito boa, seguiu todas as orientações sobre a ração e a troca de água."
+            },
+
+            {
+                autor: "Fernanda Moura",
+                nota: "5.0",
+                comentario: "Super cuidadosa e organizada. O checklist facilitou bastante e ela seguiu cada detalhe."
+            },
+
+            {
+                autor: "Gustavo Ribeiro",
+                nota: "4.8",
+                comentario: "Excelente profissional, demonstrou experiência desde o primeiro contato."
+            },
+
+            {
+                autor: "Renata Barros",
+                nota: "5.0",
+                comentario: "Deixei meu cachorro por quatro dias e ele foi super bem tratado. Passa muita confiança."
+            }
+        ]
     }
 ]
 

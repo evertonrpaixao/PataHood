@@ -74,7 +74,7 @@ function preencherPerfilCuidador(cuidador){
     perfilFoto.alt = `Foto de ${cuidador.nome || "cuidador"}`
 
     perfilNome.textContent = cuidador.nome || "Cuidador sem nome"
-    perfilPreco.textContent = `R$ ${cuidador.preco || "--,--"}/h`
+    perfilPreco.textContent = `R$ ${cuidador.preco || "--,--"}/dia`
     perfilDescricao.textContent = cuidador.descricao || "Nenhuma descrição informada."
     perfilIdade.textContent = cuidador.idade ? `${cuidador.idade} anos` : "Idade não informada"
     
