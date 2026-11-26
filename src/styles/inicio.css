@@ -1,16 +1,22 @@
-.hero{
+.hero {
     display: grid;
     justify-items: center;
     gap: .5rem;
     margin: 1rem auto 0;
     padding-inline: 1rem;
+    padding: 3rem 1rem 2rem;
     text-align: center;
 }
+
 .hero__imagem {
     display: block;
     width: min(2.5rem);
     aspect-ratio: 1;
     object-fit: contain;
+}
+
+.titulo-logo{
+    color: var(--marrom);
 }
 
 .hero__logo{
@@ -21,17 +27,22 @@
     gap: 5px;
 }
 
-.campos{
-    display: grid; 
-    justify-items: center; 
+.hero__descricao {
+    max-width: 28ch;
+    margin-inline: auto;
+    font-size: var(--h4);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.campos {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center; 
     gap: .65rem; 
     width: min(100%, 23rem); 
     margin-inline: auto;
-}
-
-.acoes{
-    display: flex;
-    gap: 10px;
 }
 
 .busca { position: relative; width: 100%; }
@@ -42,11 +53,16 @@
     transform: translateY(-50%);
     pointer-events: none;
 }
+
 .busca__input {
     background: #f0dbc3;
     padding-inline-start: 2.25rem;
+    border: 0;
+    background: var(--marrom);
 }
 
+.acoes { margin-top: 1rem; }
+.acoes .botao { flex: 1 1 13rem; }
 .lista-elementos:not(:empty) {
     box-sizing: border-box;
     display: grid;
@@ -260,5 +276,13 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 1.25rem;
         padding-block: 2.5rem;
+    }
+
+    .hero__descricao {
+        max-width: 28ch;
+        margin-inline: auto;
+        font-size: var(--h2);
+        font-weight: 700;
+        line-height: 1.2;
     }
 }

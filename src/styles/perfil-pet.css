@@ -2,7 +2,7 @@
 .perfil-pet__fundo-superior {
     min-height: 4rem;
     border-radius: .35rem;
-    background: var(--degrade);
+    background: linear-gradient(#ae906d, #e0c39f);;
 }
 .perfil-pet__apresentacao {
     display: grid;
@@ -41,6 +41,11 @@
 .info-cuidador__titulo { font-size: 1.2rem; }
 .info-cuidador__detalhes { display: grid; gap: .5rem; margin-top: .5rem; }
 .perfil-pet__form > .perfil-pet__botao { justify-self: center; }
+.botao-add-tarefa{
+    display: block;
+    margin: auto;
+    width: 90%;
+}
 
 @media (min-width: 48rem) {
     .perfil-pet__dados { grid-template-columns: repeat(4, minmax(0, 1fr)); }
