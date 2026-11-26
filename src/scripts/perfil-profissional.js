@@ -16,6 +16,7 @@ const listaAvaliacoes = document.querySelector("#avaliacoes-lista")
 const formSolicitacao = document.querySelector("#form-solicitacao")
 const botaoContratar = document.querySelector("#botao-contratar")
 const botaoFecharJanela = document.querySelector("#botao-fechar-janela")
+const botaoSolicitacao = document.querySelector("#botao-solicitacao")
 const listaPetsSolicitacao = document.querySelector("#lista-pets-solicitacao")
 
 // pegando id do cuidador pela url da página
@@ -136,12 +137,57 @@ async function inicializarPagina(){
     }
 }
 
+function criarCardMensagem(texto, tipo = "aviso"){
+    const card = document.createElement("div")
+    card.className = `mensagem-lista mensagem-lista--${tipo}`
+    card.setAttribute("role", "alert")
+
+    const paragrafo = document.createElement("p")
+    paragrafo.className = "mensagem-lista__texto"
+    paragrafo.textContent = texto
+
+    card.appendChild(paragrafo)
+    return card
+}
+
 // EVENTOS //
 botaoContratar.addEventListener("click", () => {
     formSolicitacao.classList.remove("escondida")
 })
 
 botaoFecharJanela.addEventListener("click", () => {
+    formSolicitacao.classList.add("escondida")
+})
+
+formSolicitacao.addEventListener("submit", async (event) => {
+    event.preventDefault()
+
+    const avisoAntigo = formSolicitacao.querySelector(".mensagem-lista")
+    if (avisoAntigo) avisoAntigo.remove()
+
+    const petsMarcados = Array.from(
+        formSolicitacao.querySelectorAll('input[name="petsSelecionados"]:checked')
+    )
+
+    if(petsMarcados.length === 0){
+        const botaoEnviar = formSolicitacao.querySelector(".solicitacao__botao")
+        formSolicitacao.insertBefore(
+            criarCardMensagem("Selecione pelo menos um pet para solicitar o serviço.", "aviso"),
+            botaoEnviar
+        )
+        return
+    }
+
+    const perfilContainer = document.querySelector(".perfil")
+    const msgAnterior = perfilContainer.querySelector(".mensagem-lista")
+    if (msgAnterior) msgAnterior.remove()
+
+    const secaoApresentacao = document.querySelector(".perfil__apresentacao")
+    secaoApresentacao.insertAdjacentElement(
+        "afterend",
+        criarCardMensagem("Serviço solicitado! Agora aguarde a resposta do cuidador.", "sucesso")
+    )
+
     formSolicitacao.classList.add("escondida")
 })
 
