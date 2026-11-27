@@ -1,4 +1,4 @@
-const API_URL = "https://psel-api.vercel.app/api/devserbalao"
+const API_URL = "https://psel-api.vercel.app/api/devserbalao-final"
 
 async function buscarDados(endpoint){
     const response = await fetch(`${API_URL}${endpoint}`)
