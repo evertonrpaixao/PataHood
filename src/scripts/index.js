@@ -67,6 +67,10 @@ async function exibirLista({ endpoint, criarCard, valorBusca = "", cardExtra = n
                 const cidade = (item.cidade || "").toLowerCase()
                 return cidade.startsWith(valor)
             })
+
+            console.log(`Lista de cuidadores em: ${valorBusca}`, dados)
+        } else{
+            console.log(`Lista de pets cadastrados:`, dados)
         }
 
         listaElementos.innerHTML = ""
@@ -125,7 +129,7 @@ botaoCuidadores.addEventListener("click", () => {
         return
     }
 
-    if (valorBusca.length < 3) {
+    if(valorBusca.length < 3){
         listaElementos.innerHTML = ""
         listaElementos.appendChild(
             criarCardMensagem("Digite pelo menos 3 letras para buscar a cidade.", "aviso")

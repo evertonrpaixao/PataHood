@@ -1,4 +1,6 @@
 // DOM //
+const botaoMenu = document.querySelector("#botao-menu")
+const headerNav = document.querySelector("#header-nav")
 const formPet = document.querySelector("#form-pet")
 const petFoto = document.querySelector("#pet-foto")
 const inputNome = document.querySelector("#pet-nome")
@@ -133,5 +135,13 @@ botaoAddTarefa.addEventListener("click", () => {
 })
 
 formPet.addEventListener("submit", salvarPet)
+
+if (botaoMenu && headerNav){
+    botaoMenu.addEventListener("click", () => {
+        const estaAberto = headerNav.classList.toggle("header__nav--aberto")
+        botaoMenu.setAttribute("aria-expanded", estaAberto)
+        botaoMenu.textContent = estaAberto ? "✕" : "☰"
+    })
+}
 
 inicializarPagina()

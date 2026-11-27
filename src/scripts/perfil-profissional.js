@@ -1,4 +1,6 @@
 // DOM //
+const botaoMenu = document.querySelector("#botao-menu")
+const headerNav = document.querySelector("#header-nav")
 const perfilFoto = document.querySelector("#perfil-foto")
 const perfilNome = document.querySelector("#perfil-nome")
 const perfilCertificacoes = document.querySelector("#perfil-certificacoes")
@@ -190,5 +192,13 @@ formSolicitacao.addEventListener("submit", async (event) => {
 
     formSolicitacao.classList.add("escondida")
 })
+
+if (botaoMenu && headerNav){
+    botaoMenu.addEventListener("click", () => {
+        const estaAberto = headerNav.classList.toggle("header__nav--aberto")
+        botaoMenu.setAttribute("aria-expanded", estaAberto)
+        botaoMenu.textContent = estaAberto ? "✕" : "☰"
+    })
+}
 
 inicializarPagina()
