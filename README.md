@@ -49,11 +49,11 @@ Toda a comunicação com o back-end é centralizada no módulo `api.js` por meio
 | :--- | :--- | :--- |
 | `GET` | `/api/devserbalao/cuidadores` | Retorna a lista de cuidadores cadastrados (usado na busca e na checagem dos profissionais pré-cadastrados). |
 | `POST` | `/api/devserbalao/cuidadores` | Cadastra os cuidadores fictícios iniciais quando a coleção está vazia. |
-| `GET` | `/api/devserbalao/cuidadores/:id` | Busca os dados detalhados de um cuidador específico para renderizar seu perfil. |
+| `GET` | `/api/devserbalao/cuidadores/{id}` | Busca os dados detalhados de um cuidador específico para renderizar seu perfil. |
 | `GET` | `/api/devserbalao/pets` | Lista os pets cadastrados para exibição na tela inicial e seleção na contratação. |
-| `GET` | `/api/devserbalao/pets/:id` | Carrega os dados e o checklist de um pet específico para visualização ou edição. |
+| `GET` | `/api/devserbalao/pets/{id}` | Carrega os dados e o checklist de um pet específico para visualização ou edição. |
 | `POST` | `/api/devserbalao/pets` | Cria um novo registro de pet com `cuidadorId: null` e checklist inicial. |
-| `PATCH` | `/api/devserbalao/pets/:id` | Atualiza parcialmente os dados/checklist do pet ou vincula um `cuidadorId` na contratação. |
+| `PATCH` | `/api/devserbalao/pets/{id}` | Atualiza parcialmente os dados/checklist do pet ou vincula um `cuidadorId` na contratação. |
 
 ### Exemplo de Payload (`POST /pets`)
 
